@@ -4,4 +4,5 @@ print_r($content);
 // loop through slider object
 // test for media type with if-elseif
 // html for each case in if-elseif
+// start using branches for github
 ?>
