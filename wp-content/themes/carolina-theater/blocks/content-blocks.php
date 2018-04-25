@@ -1,12 +1,13 @@
 <?php 
+// print_r(get_sub_field('content_block_type'));
 $fc = get_sub_field('content_block_type')[0]['acf_fc_layout'];
 
 switch ($fc) {
     case 'default':
-        echo "I'm the wysiwyg";
+        get_template_part( 'blocks/content-blocks', 'wysiwyg' );
         break;
     case 'slider':
-        echo "I sliiiiiiiiiiiiide";
+        get_template_part( 'blocks/content-blocks', 'slider' );
         break;
     case 'full_width_image':
         echo "Full width image";
