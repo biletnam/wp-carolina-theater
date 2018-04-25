@@ -57,19 +57,19 @@ $hero_images = $image_slider['hero_images'];
                 <?php
                 $meta_query_args = array(
                     'post_type' => 'film',
-                    array(
+                    'meta_query' => array (array(
                         'key'     => 'associated_events',
                         'value'   => get_the_id(),
                         'compare' => '='
+                        )
                     )
                 );
                 $meta_query = new WP_Query( $meta_query_args );
                 if ($meta_query->have_posts()) {
-                    while ($meta_query->have_posts()) {
-                        $meta_query->the_post();
-                        echo 'here i am ' . get_the_title();
+                    while ($meta_query->have_posts()) { $meta_query->the_post();
+                        echo get_field('associated_events');
+                        echo get_the_title() . '//////';
                     }
-
                 }
                 wp_reset_postdata();
                 ?>
