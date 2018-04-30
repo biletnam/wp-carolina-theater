@@ -16,7 +16,7 @@ switch ($fc) {
         echo 'popup overlay lightbox!!!!!!!';
         break;
     case 'link_block':
-        echo 'link block';
+        get_template_part( 'blocks/content-blocks', 'link-block');
         break;
     case 'accordion':
         echo 'play the accordion';
@@ -25,7 +25,7 @@ switch ($fc) {
         echo 'send a post card';
         break;
     default:
-        echo "default case : no valid content type found";
+        echo "default case : No Content Found";
         break;
 }
 ?>
