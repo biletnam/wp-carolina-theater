@@ -3,10 +3,8 @@
 if (have_rows('content_block_type')) {
     while (have_rows('content_block_type')) {
         the_row();
-        // print_r(get_sub_field('single_post_item'));
        
         $fc = get_row_layout();
-
         switch ($fc) {
             case 'default':
                 get_template_part( 'blocks/content-blocks', 'wysiwyg' );
@@ -32,8 +30,7 @@ if (have_rows('content_block_type')) {
             default:
                 echo "default case : No Content Found";
                 break;
-        }
-        
+        }  
     }
 }
 
