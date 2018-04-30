@@ -10,7 +10,7 @@ switch ($fc) {
         get_template_part( 'blocks/content-blocks', 'slider' );
         break;
     case 'full_width_image':
-        echo "Full width image";
+        get_template_part( 'blocks/content-blocks', 'full-width-image');
         break;
     case 'popup_overlay':
         echo 'popup overlay lightbox!!!!!!!';
