@@ -71,8 +71,103 @@ $hero_images = $image_slider['hero_images'];
                 $meta_query = new WP_Query( $meta_query_args );
                 if ($meta_query->have_posts()) {
                     while ($meta_query->have_posts()) { $meta_query->the_post();
-                        echo get_field('associated_events');
-                        echo get_the_title() . '//////';
+                        // echo get_field('associated_events');
+                        // echo get_the_title() . '//////';
+                        // print_r($meta_que
+                        $start_date_string = get_field('start_date');
+                        $end_date_string = get_field('end_date');
+                        // echo get_field('start_date');
+                        echo get_post_type();
+                ?>
+                    <div class="event-card__front card">
+                        <div class="event-image-container">
+                            <img src="<?php  echo get_field('event_image')["url"];?>"
+                                alt="death proof poster" />
+                            <div class="event-date">
+                                <?php 
+                                if ($start_date_string == $end_date_string) {
+                                    echo $start_date_string;
+                                } else {
+                                    echo "$start_date_string - $end_date_string";
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <div class="event-content-container">
+                            <p><?php the_field('single_event_type');?></p>
+                            <h3><?php the_title();?></h3>
+                            <p><?php the_content();?></p>
+                            <p><i class="fa fa-map-marker"></i><?php the_field('location'); ?></p>
+                            <p>
+                                <i class="fas fa-ticket-alt"></i><?php 
+                                            $prices = get_field('ticket_prices');
+                                            // empty $prices returns as boolean, checking if there are prices available
+                                            // make ticket price mandatory in back end if added
+                                            if (gettype($prices) != 'boolean') {
+                                                $price_array = [];
+
+                                                foreach($prices as $price) {
+                                                    foreach($price as $i => $v) {
+                                                        array_push($price_array, $v);
+                                                    }
+                                                }
+                                                echo '$ ' . join(", ", $price_array);   
+                                            }
+                                        ?>
+                            </p>
+                            <p>
+                                <i class="fas fa-calendar-alt"></i>
+                                        <?php 
+                                            if ($start_date_string == $end_date_string) {
+                                                echo $start_date_string;
+                                            } else {
+                                                echo "$start_date_string - $end_date_string";
+                                            }
+                                        ?>
+                            </p>
+                            <p><a href="<?php echo get_page_link(get_the_id()); ?>"><button>More Info</button></a></p>
+                        </div>
+                    </div>
+                    <!-- <div class="event-card__back card">
+                        <img src="<?php  //echo get_field('event_image')["url"];?>"
+                            alt="movie poster">
+                        <div class="image-only__content-container">
+                            <ul>
+                                <li>
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <?php 
+                                        // if ($start_date_string == $end_date_string) {
+                                        //     echo $start_date_string;
+                                        // } else {
+                                        //     echo "$start_date_string - $end_date_string";
+                                        // }
+                                    ?>
+                                </li>
+                                <li>
+                                    <i class="fa fa-map-marker"></i><?php //the_field('location'); ?>
+                                </li>
+                                <li>
+                                    <i class="fas fa-ticket-alt"></i><?php 
+                                        // $prices = get_field('ticket_prices');
+                                        // // empty $prices returns as boolean, checking if there are prices available
+                                        // // make ticket price mandatory in back end if added
+                                        // if (gettype($prices) != 'boolean') {
+                                        //     $price_array = [];
+
+                                        //     foreach($prices as $price) {
+                                        //         foreach($price as $i => $v) {
+                                        //             array_push($price_array, $v);
+                                        //         }
+                                        //     }
+                                        //     echo '$ ' . join(", ", $price_array);   
+                                        // }
+                                    ?>
+                                </li>
+                            </ul>
+                            <a href="<?php //echo get_page_link(get_the_id()); ?>"><button>More Info</button></a>
+                        </div>
+                    </div> -->
+                <?php
                     }
                 }
                 wp_reset_postdata();
