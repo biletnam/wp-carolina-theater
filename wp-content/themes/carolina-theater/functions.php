@@ -427,6 +427,12 @@ function twentyseventeen_scripts() {
 	wp_enqueue_script( 'film-festival-tabs', get_template_directory_uri() . '/src/js/filmFestivalTabs.js', array('jquery'
 	), null, true );
 
+	wp_enqueue_script( 'film-festival-tabs', get_template_directory_uri() . '/src/js/featherlight.js', array('jquery'
+	), null, true );
+
+	wp_enqueue_script( 'film-festival-tabs', get_template_directory_uri() . '/src/js/featherlight.gallery.js', array('jquery'
+	), null, true );
+
 	wp_enqueue_script('jquery');
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

@@ -50,12 +50,13 @@ $hero_images = $image_slider['hero_images'];
                         }
                     ?>
             </div>
-
+            <!-- Generate all tabs, show only highlighted tab content -->
             <div class="festival-content__wrapper">
                 <div class='tab-content hide-tab-content overview'>
                     <?php 
                     // print_r(get_field('tabs'));
-                    echo '<br/>'; print_r($content->post_content); ?>
+                    // Overview tab - content
+                    print_r($content->post_content); ?>
                 </div>
                 <div class='films tab-content hide-tab-content'>
                 <?php
@@ -182,7 +183,7 @@ $hero_images = $image_slider['hero_images'];
                             $id_name = strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $id_name));
                             $tab_content = get_sub_field('tab_content'); ?>  
 
-                            <div class='<?php echo $id_name ?> tab-content hide-tab-content'><?php get_template_part( 'blocks/content-blocks' );//echo $tab_content[0]['text_editor']; ?></div>
+                            <div class='<?php echo $id_name ?> tab-content hide-tab-content'><?php get_template_part( 'blocks/content-blocks' ); ?></div>
                 <?php
                         }
                     } ?>

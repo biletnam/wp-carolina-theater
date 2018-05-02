@@ -16,7 +16,7 @@ if (have_rows('content_block_type')) {
                 get_template_part( 'blocks/content-blocks', 'full-width-image');
                 break;
             case 'popup_overlay':
-                echo 'popup overlay lightbox!!!!!!!';
+                get_template_part( 'blocks/content-blocks', 'popup-overlay' );
                 break;
             case 'link_block':
                 get_template_part( 'blocks/content-blocks', 'link-block' );
@@ -25,10 +25,11 @@ if (have_rows('content_block_type')) {
                 echo 'play the accordion';
                 break;
             case 'layout_post_card':
+                // malfunctioning
                 get_template_part( 'blocks/content-blocks', 'post-card' ); 
                 break;
             default:
-                echo "default case : No Content Found";
+                echo "No Content Found";
                 break;
         }  
     }

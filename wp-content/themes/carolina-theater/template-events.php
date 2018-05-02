@@ -289,7 +289,6 @@ if ($events_query->have_posts()) {
                             </div>
                         </div>
                     </div>
-
         <?php }
         }
     }

@@ -1,12 +1,19 @@
-@import 'single-film';
-@import 'single-event';
-@import 'hero-slider';
+@import "single-film";
+@import "single-event";
+@import "hero-slider";
+// @import "featherlight";
+// @import "featherlight-gallery";
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "Lato", sans-serif;
+}
+
+// featherlight example
+.inline {
+	display: none;
 }
 
 .container {

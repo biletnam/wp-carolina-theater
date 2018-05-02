@@ -1,5 +1,7 @@
 <?php
-$content = get_sub_field('content_block_type')[0]['panel_content'];
+// $content = get_sub_field('content_block_type')[0]['panel_content'];
+// print_r(get_sub_field('panel_content'));
+$content = get_sub_field('panel_content');
 ?>
 
 <div style='background-color: darkseagreen;'>
