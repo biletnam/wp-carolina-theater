@@ -16,14 +16,6 @@
 		"oAP": "\/.htaccess",
 		"oF": 0
 		},
-	"\/.vscode\/settings.json": {
-		"ft": 524288,
-		"oA": 1,
-		"oAP": "\/.vscode\/settings-min.json",
-		"oF": 0,
-		"oO": 0,
-		"oS": 1
-		},
 	"\/index.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -6987,6 +6979,17 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"\/wp-content\/themes\/carolina-theater\/assets\/images\/background-background-image-creek-707915.jpg": {
+		"ft": 16384,
+		"iS": 6579815,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/assets\/images\/background-background-image-creek-707915.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
 	"\/wp-content\/themes\/carolina-theater\/assets\/images\/comedy.jpg": {
 		"ft": 16384,
 		"iS": 55151,
@@ -7100,6 +7103,62 @@
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
+		},
+	"\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks-accordion.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks-accordion.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks-full-width-image.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks-full-width-image.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks-link-block.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks-link-block.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks-popup-overlay.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks-popup-overlay.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks-post-card.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks-post-card.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks-slider.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks-slider.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks-wysiwyg.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks-wysiwyg.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/blocks\/content-blocks.php",
+		"oF": 0
 		},
 	"\/wp-content\/themes\/carolina-theater\/comments.php": {
 		"cB": 0,
@@ -7293,6 +7352,45 @@
 		"oAP": "\/wp-content\/themes\/carolina-theater\/single.php",
 		"oF": 0
 		},
+	"\/wp-content\/themes\/carolina-theater\/src\/_accordion.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/src\/_accordion.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/wp-content\/themes\/carolina-theater\/src\/_featherlight-gallery.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/src\/_featherlight-gallery.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/wp-content\/themes\/carolina-theater\/src\/_featherlight.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/src\/_featherlight.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/wp-content\/themes\/carolina-theater\/src\/_hero-slider.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -7370,6 +7468,26 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "\/wp-content\/themes\/carolina-theater\/src\/js\/event-filter-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/carolina-theater\/src\/js\/featherlight.gallery.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/src\/js\/featherlight.gallery-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/wp-content\/themes\/carolina-theater\/src\/js\/featherlight.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/src\/js\/featherlight-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -7680,6 +7798,138 @@
 		"opt": 0,
 		"q": 100
 		},
+	"\/wp-content\/uploads\/2018\/04\/adaptive-images-100x100.jpeg": {
+		"ft": 16384,
+		"iS": 3084,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/adaptive-images-100x100.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/adaptive-images-150x150.jpeg": {
+		"ft": 16384,
+		"iS": 5450,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/adaptive-images-150x150.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/adaptive-images-300x168.jpeg": {
+		"ft": 16384,
+		"iS": 11327,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/adaptive-images-300x168.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/adaptive-images-768x430.jpeg": {
+		"ft": 16384,
+		"iS": 53930,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/adaptive-images-768x430.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/adaptive-images.jpeg": {
+		"ft": 16384,
+		"iS": 55583,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/adaptive-images.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-100x100.jpg": {
+		"ft": 16384,
+		"iS": 4581,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-100x100.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-1024x683.jpg": {
+		"ft": 16384,
+		"iS": 214397,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-1024x683.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-150x150.jpg": {
+		"ft": 16384,
+		"iS": 8859,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-150x150.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-2000x1200.jpg": {
+		"ft": 16384,
+		"iS": 666537,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-2000x1200.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-300x200.jpg": {
+		"ft": 16384,
+		"iS": 21364,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-300x200.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-768x512.jpg": {
+		"ft": 16384,
+		"iS": 124146,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1-768x512.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1.jpg": {
+		"ft": 16384,
+		"iS": 6579815,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/background-background-image-creek-707915-1.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
 	"\/wp-content\/uploads\/2018\/04\/Famous-Fantastic-Mysteries-Wikipedia.pdf": {
 		"cB": 0,
 		"ft": 8192,
@@ -7693,6 +7943,116 @@
 		"oA": 0,
 		"oAP": "\/wp-content\/uploads\/2018\/04\/license.txt",
 		"oF": 0
+		},
+	"\/wp-content\/uploads\/2018\/04\/Meatballsposter-100x100.jpg": {
+		"ft": 16384,
+		"iS": 5043,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/Meatballsposter-100x100.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/Meatballsposter-150x150.jpg": {
+		"ft": 16384,
+		"iS": 9200,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/Meatballsposter-150x150.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/Meatballsposter-196x300.jpg": {
+		"ft": 16384,
+		"iS": 18118,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/Meatballsposter-196x300.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/Meatballsposter.jpg": {
+		"ft": 16384,
+		"iS": 25749,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/Meatballsposter.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/nyc-anime-100x100.jpg": {
+		"ft": 16384,
+		"iS": 4753,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/nyc-anime-100x100.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/nyc-anime-1024x538.jpg": {
+		"ft": 16384,
+		"iS": 110747,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/nyc-anime-1024x538.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/nyc-anime-150x150.jpg": {
+		"ft": 16384,
+		"iS": 8744,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/nyc-anime-150x150.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/nyc-anime-300x158.jpg": {
+		"ft": 16384,
+		"iS": 15549,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/nyc-anime-300x158.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/nyc-anime-768x403.jpg": {
+		"ft": 16384,
+		"iS": 71524,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/nyc-anime-768x403.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"\/wp-content\/uploads\/2018\/04\/nyc-anime.jpg": {
+		"ft": 16384,
+		"iS": 206624,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "\/wp-content\/uploads\/2018\/04\/nyc-anime.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
 		},
 	"\/wp-content\/uploads\/2018\/04\/README.txt": {
 		"cB": 0,

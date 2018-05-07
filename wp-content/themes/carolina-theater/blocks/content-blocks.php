@@ -1,5 +1,6 @@
 <?php 
-// print_r(get_sub_field('content_block_type'));
+// generates content for tabs on single-film.php and single-series.php pages based on 
+// content type
 if (have_rows('content_block_type')) {
     while (have_rows('content_block_type')) {
         the_row();
@@ -22,7 +23,7 @@ if (have_rows('content_block_type')) {
                 get_template_part( 'blocks/content-blocks', 'link-block' );
                 break;
             case 'accordion':
-                echo 'play the accordion';
+                get_template_part( 'blocks/content-blocks', 'accordion' );
                 break;
             case 'layout_post_card':
                 // malfunctioning
@@ -36,5 +37,4 @@ if (have_rows('content_block_type')) {
 }
 
 wp_reset_postdata();
-// update content block files to use have_rows()
 ?>

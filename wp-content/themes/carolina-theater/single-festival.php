@@ -1,6 +1,4 @@
 <?php
-// include 'content-blocks.php';
-// get_template_part( 'blocks/content-blocks' );
 get_header();
 $content = get_post();
 $image_slider = get_field('image_slider');
@@ -11,12 +9,18 @@ $hero_images = $image_slider['hero_images'];
     <div style='background-color: darkseagreen;'>
         <div class="hero-slider">
             <?php
-            foreach ($hero_images as $hi) { ?>
-                <div>
-                    <img src="<?php echo $hi['image']['url']; ?>" alt="" class="hero-slider__image">
-                </div>
-            <?php
-            } ?>
+
+            if (have_rows('hero_images')) {
+                while (have_rows('hero_images')) {
+                    the_row();
+                ?>
+                    <div>
+                        <img src="<?php echo get_sub_field('image')['url']; ?>" alt="" class="hero-slider__image">
+                    </div>
+                <?php
+                }
+            }
+            ?>
         </div>
     </div>
 
@@ -54,12 +58,12 @@ $hero_images = $image_slider['hero_images'];
             <div class="festival-content__wrapper">
                 <div class='tab-content hide-tab-content overview'>
                     <?php 
-                    // print_r(get_field('tabs'));
                     // Overview tab - content
                     print_r($content->post_content); ?>
                 </div>
                 <div class='films tab-content hide-tab-content'>
-                <?php
+                <?php 
+                // film tab contents
                 $meta_query_args = array(
                     'post_type' => 'film',
                     'meta_query' => array (array(
@@ -72,14 +76,11 @@ $hero_images = $image_slider['hero_images'];
                 $meta_query = new WP_Query( $meta_query_args );
                 if ($meta_query->have_posts()) {
                     while ($meta_query->have_posts()) { $meta_query->the_post();
-                        // echo get_field('associated_events');
-                        // echo get_the_title() . '//////';
-                        // print_r($meta_que
                         $start_date_string = get_field('start_date');
                         $end_date_string = get_field('end_date');
-                        // echo get_field('start_date');
                         echo get_post_type();
                 ?>
+                    <!-- single film card -->
                     <div class="event-card__front card">
                         <div class="event-image-container">
                             <img src="<?php  echo get_field('event_image')["url"];?>"
@@ -129,45 +130,6 @@ $hero_images = $image_slider['hero_images'];
                             <p><a href="<?php echo get_page_link(get_the_id()); ?>"><button>More Info</button></a></p>
                         </div>
                     </div>
-                    <!-- <div class="event-card__back card">
-                        <img src="<?php  //echo get_field('event_image')["url"];?>"
-                            alt="movie poster">
-                        <div class="image-only__content-container">
-                            <ul>
-                                <li>
-                                    <i class="fas fa-calendar-alt"></i>
-                                    <?php 
-                                        // if ($start_date_string == $end_date_string) {
-                                        //     echo $start_date_string;
-                                        // } else {
-                                        //     echo "$start_date_string - $end_date_string";
-                                        // }
-                                    ?>
-                                </li>
-                                <li>
-                                    <i class="fa fa-map-marker"></i><?php //the_field('location'); ?>
-                                </li>
-                                <li>
-                                    <i class="fas fa-ticket-alt"></i><?php 
-                                        // $prices = get_field('ticket_prices');
-                                        // // empty $prices returns as boolean, checking if there are prices available
-                                        // // make ticket price mandatory in back end if added
-                                        // if (gettype($prices) != 'boolean') {
-                                        //     $price_array = [];
-
-                                        //     foreach($prices as $price) {
-                                        //         foreach($price as $i => $v) {
-                                        //             array_push($price_array, $v);
-                                        //         }
-                                        //     }
-                                        //     echo '$ ' . join(", ", $price_array);   
-                                        // }
-                                    ?>
-                                </li>
-                            </ul>
-                            <a href="<?php //echo get_page_link(get_the_id()); ?>"><button>More Info</button></a>
-                        </div>
-                    </div> -->
                 <?php
                     }
                 }
@@ -175,6 +137,7 @@ $hero_images = $image_slider['hero_images'];
                 ?>
                 </div>
                 <?php
+                    // using regex to replace tab names with valid id's for html
                     if( have_rows('tabs') ) {
                         while ( have_rows('tabs') ) { 
                             the_row();
@@ -200,6 +163,7 @@ $hero_images = $image_slider['hero_images'];
                 </div>
             </div>
         </section>
+        <!-- Sidebar start -->
         <section class="festival-sidebar">
             <div class='festival-sidebar__btn'>
                 <button>Buy Tickets</button>
@@ -239,27 +203,32 @@ $hero_images = $image_slider['hero_images'];
                 <ul>
                     <?php
                         $files = get_field('additional_resources');
-                        
-                        for($i = 0; $i < count($files); $i++) {
-                            $file_obj = $files[$i]['file_link'];
-                            if ($file_obj['add_file_by'] == "File URL") {
-                                $href = $file_obj['file_url'];
-                            } else if ($file_obj['add_file_by'] == "Upload a File") {
-                                $href = $file_obj['upload_file'];
-                            }
+
+                        if (have_rows('additional_resources')) {
+                            while(have_rows('additional_resources')) {
+                                the_row();
+                                $href = "";
+                                $file = get_sub_field('file_link');
+                                if ($file['add_file_by'] == 'File URL') {
+                                    $href = $file['file_url'];
+                                } else if ($file['add_file_by'] == "Upload a File") {
+                                    $href = $file['upload_file'];
+                                }
                     ?>
-                        <li>
-                            <a target="_blank" href="<?php echo $href ?>">
-                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                            <?php echo $files[$i]['file_link']['link_text']; ?>
-                            </a>
-                        </li>
-                    <?php
+                                <li>
+                                    <a target="_blank" href="<?php echo $href ?>">
+                                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                    <?php echo $file['link_text']; ?>
+                                    </a>
+                                </li> 
+                    <?php     
+                            }
                         }
+                        // }
                     ?>
                 </ul>
             </div>
-        </section>
+        </section>  <!-- Sidebar end -->
     </div>
 </div>
 
