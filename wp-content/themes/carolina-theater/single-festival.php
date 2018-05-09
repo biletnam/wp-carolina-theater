@@ -1,9 +1,6 @@
 <?php
 get_header();
 $content = get_post();
-print_r($content);
-$image_slider = get_field('image_slider');
-$hero_images = $image_slider['hero_images'];
 
 ?>
 <div class="hero-container">
@@ -34,7 +31,7 @@ $hero_images = $image_slider['hero_images'];
             <h1><?php the_title(); ?></h1>
             <div class='festival-content__tabs'>
                     <a id="overview" class='tab-link' href="#overview">
-                            Overview
+                        Overview
                     </a>
                     <a id='films' class='tab-link' href="#films">
                         Films
@@ -161,8 +158,8 @@ $hero_images = $image_slider['hero_images'];
                 </div>
             </div>
         </section>
-        <!-- Sidebar start -->
-        <section class="festival-sidebar">
+        
+        <section class="festival-sidebar"> <!-- Sidebar start -->
             <div class='festival-sidebar__btn'>
                 <button>Buy Tickets</button>
             </div>
