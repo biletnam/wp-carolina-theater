@@ -37,20 +37,21 @@ get_header();
                                         <li>
                                             <i class="fa fa-calendar"></i>
                                             <?php
-                                                $featured_date_range = get_field('showtimes', $featured_ID);
+                                                // convert date strings to integers for sorting
                                                 $featured_event_dates = array();
-                                                if ($featured_date_range != NULL) {
-                                                    
-                                                    for ($i = 0; $i < count($featured_date_range); $i++) {
-                                                        $featured_event_date = strtotime($featured_date_range[$i]["dates"]);
+                                                if (have_rows('showtimes', $featured_ID)) {
+                                                    while (have_rows('showtimes', $featured_ID)) {
+                                                        the_row();
+                                                        $featured_event_date = strtotime(get_sub_field('dates'));
                                                         array_push($featured_event_dates, $featured_event_date);
                                                     }
-                                                    $featured_start_date = min($featured_event_dates);
-                                                    $featured_end_date = max($featured_event_dates);
-                                                    $featured_start_date_string = date("F d, Y", min($featured_event_dates));
-                                                    $featured_end_date_string = date("F d, Y", max($featured_event_dates));
-                                                    echo $featured_start_date_string . ' - ' . $featured_end_date_string;
                                                 }
+
+                                                $featured_start_date = min($featured_event_dates);
+                                                $featured_end_date = max($featured_event_dates);
+                                                $featured_start_date_string = date("F d, Y", min($featured_event_dates));
+                                                $featured_end_date_string = date("F d, Y", max($featured_event_dates));
+                                                echo $featured_start_date_string . ' - ' . $featured_end_date_string;
                                             ?> 
                                         </li>
                                         <li>
@@ -68,18 +69,15 @@ get_header();
                                         <li>
                                             <i class="fa fa-ticket" aria-hidden="true"></i>
                                             <?php 
-                                                $featured_ticket_prices = get_field('ticket_prices', $featured_ID);
-                                                if (count($featured_ticket_prices) > 1) {
-                                                    $multiple_ticket_prices = array();
-                                                    for ($i = 0; $i < count($featured_ticket_prices); $i++) {
-                                                        for ($j = 0; $j < count($featured_ticket_prices[$i]); $j++) {
-                                                            array_push($multiple_ticket_prices, $featured_ticket_prices[$i]["price"]);
-                                                        }
+                                                $multiple_ticket_prices = array();
+                                                if (have_rows('ticket_prices', $featured_ID)) {
+                                                    while (have_rows('ticket_prices', $featured_ID)) {
+                                                        the_row();
+                                                        $price = get_sub_field('price');
+                                                        array_push($multiple_ticket_prices, $price);
                                                     }
-                                                    echo '$' . join(', ', $multiple_ticket_prices);
-                                                } else {
-                                                    echo '$' . $featured_ticket_prices[0]["price"];
                                                 }
+                                                echo '$' . join(', ', $multiple_ticket_prices);
                                             ?>
                                         </li>
                                     </ul>
@@ -125,7 +123,7 @@ get_header();
                                     $filter_query->the_post();
 
                                     // pick off last date from showtimes array,
-                                    // assumses user has entered dates in the proper order
+                                    // assumes user has entered dates in the proper order
                                     $last_date = get_field('showtimes');
                                     $last_date = $last_date[count($last_date) - 1]["dates"];
 
@@ -268,20 +266,17 @@ if ($events_query->have_posts()) {
                                         <i class="fa fa-map-marker"></i><?php the_field('location'); ?>
                                     </li>
                                     <li>
-                                        <i class="fas fa-ticket-alt"></i><?php 
-                                            $prices = get_field('ticket_prices');
-                                            // empty $prices returns as boolean, checking if there are prices available
-                                            // make ticket price mandatory in back end if added
-                                            if (gettype($prices) != 'boolean') {
-                                                $price_array = [];
-
-                                                foreach($prices as $price) {
-                                                    foreach($price as $i => $v) {
-                                                        array_push($price_array, $v);
-                                                    }
+                                        <i class="fas fa-ticket-alt"></i>
+                                        <?php 
+                                            $prices = array();
+                                            if (have_rows('ticket_prices')) {
+                                                while (have_rows('ticket_prices')) {
+                                                    the_row();
+                                                    $price = get_sub_field('price');
+                                                    array_push($prices, $price);
                                                 }
-                                                echo '$ ' . join(", ", $price_array);   
                                             }
+                                            echo '$ ' . join(", ", $prices);
                                         ?>
                                     </li>
                                 </ul>

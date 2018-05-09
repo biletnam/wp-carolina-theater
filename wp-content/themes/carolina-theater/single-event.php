@@ -8,14 +8,7 @@ $events_query_args = array(
 );
 
 $events_query = new WP_Query($events_query_args);
-// print_r($events_query);
-// echo "<br><br>";
 $content = get_post($id);
-// print_r($content);
-// echo $content->post_content;
-
-// get all dates and showtimes
-$date_range = get_field('showtimes');
 
 // convert date strings to integers for sorting
 $event_dates = array();
