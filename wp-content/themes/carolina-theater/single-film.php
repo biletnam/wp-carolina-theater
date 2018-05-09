@@ -13,12 +13,6 @@ $content = get_post($id);
 
 // get all dates and showtimes
 $date_range = get_field('showtimes');
-// convert date strings to integers for sorting
-// $event_dates = array();
-// for ($i = 0; $i < count($date_range); $i++) {
-//     $event_date = strtotime($date_range[$i]["dates"]);
-//     array_push($event_dates, $event_date);
-// }
 $event_dates = array();
 if (have_rows('showtimes')) {
     while (have_rows('showtimes')) {
@@ -69,37 +63,49 @@ $end_date = date("F d, Y", max($event_dates));
                 <br>
                 <div class="single-film__button"><button>Buy Tickets</button></div>
                 <h3><i class="fa fa-clock-o" aria-hidden="true"></i>Showtimes &amp; Tickets</h3>
-                <div>$
-                    <?php 
-                        $prices = get_field('ticket_prices');
-                        $price_vals = array();
-                            foreach($prices as $price=>$cost) {
-                                foreach($cost as $c) {
-                                    array_push($price_vals, $c);
+                <ul>
+                <?php 
+                    // append ticket prices
+                    $price_vals = array();
+                    if (have_rows('ticket_prices')) {
+                        while (have_rows('ticket_prices')) {
+                            the_row();
+                            $price = get_sub_field('price');
+                            array_push($price_vals, $price);
+                        }
+                    }
+                    ?>
+                        <li>
+                            <?php echo '$' . join($price_vals, ' | '); ?>
+                        </li>
+                    <?php
+
+                    // output all dates for a show
+                    if (have_rows('showtimes')) {
+                        while (have_rows('showtimes')) {
+                            the_row();
+                            $showdate = get_sub_field('dates');
+                        ?>
+                            <li><?php echo $showdate; ?></li>
+                        <?php
+                            // output all times for a given date
+                            if (have_rows('times')) {
+                                while (have_rows('times')) {
+                                    the_row();
+                                ?>
+                                    <li>
+                                <?php 
+                                        $showtime = get_sub_field('time');
+                                        echo $showtime . '<i class="fa fa-ticket" aria-hidden="true"></i>'; 
+                                ?>      
+                                    </li>
+                                <?php
                                 }
                             }
-                        echo join($price_vals, ' | ');
-                        ?>
-                </div>
-                <?php 
-                        $dates = get_field('showtimes'); 
-                        
-                        for($i = 0; $i < count($dates); $i++) { ?>
-                            <ul>
-                                <li><?php echo $dates[$i]["dates"]; ?></li>
-
-                                    <?php
-                                    for($j = 0; $j < count($dates[$i]["times"]); $j++) { 
-                                    ?>
-                                        <li><?php echo $dates[$i]["times"][$j]["time"]; ?>&nbsp;<i class="fa fa-ticket" aria-hidden="true"></i></li>
-
-                                    <?php
-                                    } ?>
-
-                                    </ul>
-                            <?php 
                         }
+                    }
                     ?>
+                </ul>
             </div>
             <div class="single-film__sidebar--film-info">
                 <h3>Movie Info</h3>
@@ -147,11 +153,19 @@ $end_date = date("F d, Y", max($event_dates));
             </div>
             <div class="single-film__sidebar-social-media">
                 <?php
-                    $links = get_field("social_media_link");
-                    foreach($links as $link) { 
+                    if (have_rows('social_media_link')) {
+                        while (have_rows('social_media_link')) {
+                            the_row();
+                            $icon = get_sub_field('icon');
+                            $url = get_sub_field('link_url');
+                            $link_text = get_sub_field('link_description');
                         ?>
-                        <p><?php echo $link["icon"]; ?><a href="<?php echo $link["link_url"]; ?>"><?php echo $link["link_description"]; ?></a></p>
-                    <?php    
+                            <p>
+                                <?php echo $icon; ?>
+                                <a href="<?php echo $url; ?>"><?php echo $link_text; ?></a>
+                            </p>
+                        <?php
+                        }
                     }
                 ?>
             </div>
