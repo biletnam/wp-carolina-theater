@@ -121,11 +121,8 @@ get_header();
                             if ($filter_query->have_posts()) {
                                 while ($filter_query->have_posts()) {
                                     $filter_query->the_post();
-
-                                    // pick off last date from showtimes array,
-                                    // assumes user has entered dates in the proper order
-                                    $last_date = get_field('showtimes');
-                                    $last_date = $last_date[count($last_date) - 1]["dates"];
+                                    // assumes 'End Date' and last 'Showtime' are the same in the dashboard
+                                    $last_date = get_field('end_date');
 
                                     // if event is playing or will be in the future, append custom
                                     // event type to array
