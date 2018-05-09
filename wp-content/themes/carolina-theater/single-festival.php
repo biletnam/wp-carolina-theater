@@ -1,6 +1,7 @@
 <?php
 get_header();
 $content = get_post();
+print_r($content);
 $image_slider = get_field('image_slider');
 $hero_images = $image_slider['hero_images'];
 
@@ -101,21 +102,18 @@ $hero_images = $image_slider['hero_images'];
                             <p><?php the_content();?></p>
                             <p><i class="fa fa-map-marker"></i><?php the_field('location'); ?></p>
                             <p>
-                                <i class="fas fa-ticket-alt"></i><?php 
-                                            $prices = get_field('ticket_prices');
-                                            // empty $prices returns as boolean, checking if there are prices available
-                                            // make ticket price mandatory in back end if added
-                                            if (gettype($prices) != 'boolean') {
-                                                $price_array = [];
-
-                                                foreach($prices as $price) {
-                                                    foreach($price as $i => $v) {
-                                                        array_push($price_array, $v);
-                                                    }
-                                                }
-                                                echo '$ ' . join(", ", $price_array);   
-                                            }
-                                        ?>
+                                <i class="fas fa-ticket-alt"></i>
+                                <?php 
+                                    $prices = array();
+                                    if (have_rows('ticket_prices')) {
+                                        while (have_rows('ticket_prices')) {
+                                            the_row();
+                                            $price = get_sub_field('price');
+                                            array_push($prices, $price);
+                                        }
+                                    }
+                                    echo '$ ' . join(", ", $prices);
+                                ?>
                             </p>
                             <p>
                                 <i class="fas fa-calendar-alt"></i>
@@ -224,7 +222,6 @@ $hero_images = $image_slider['hero_images'];
                     <?php     
                             }
                         }
-                        // }
                     ?>
                 </ul>
             </div>

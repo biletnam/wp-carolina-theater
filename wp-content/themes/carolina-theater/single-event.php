@@ -19,11 +19,15 @@ $date_range = get_field('showtimes');
 
 // convert date strings to integers for sorting
 $event_dates = array();
-for ($i = 0; $i < count($date_range); $i++) {
-    $event_date = strtotime($date_range[$i]["dates"]);
-    array_push($event_dates, $event_date);
+if (have_rows('showtimes')) {
+    while (have_rows('showtimes')) {
+        the_row();
+        $event_date = strtotime(get_sub_field('dates'));
+        array_push($event_dates, $event_date);
+    }
 }
-// covert to string and pick the min/max
+
+// pick the min/max and covert to string 
 $start_date = date("F d, Y", min($event_dates));
 $end_date = date("F d, Y", max($event_dates));
 ?>
@@ -80,48 +84,71 @@ $end_date = date("F d, Y", max($event_dates));
                 <br>
                 <div class="single-event__button"><button>On Sale</button></div>
                 <div class="single-event__button"><button>Member Tickets</button></div>
+                <ul>
                 <?php 
-                    $dates = get_field('showtimes'); 
-                    for($i = 0; $i < count($dates); $i++) { ?>
-                        <ul>
-                            <li><?php echo '<i class="fa fa-calendar" aria-hidden="true"></i>' . $dates[$i]["dates"]; ?></li>
-
-                                <?php
-                                for($j = 0; $j < count($dates[$i]["times"]); $j++) {
-                                    $doors_open = $dates[$i]["times"][$j]["doors_open"];
-                                ?>
-                                    <li><?php echo '<i class="fa fa-clock-o" aria-hidden="true"></i>Doors Open ' . $doors_open . ' | Showtime ' . $dates[$i]["times"][$j]["time"]; ?>&nbsp;<i class="fas fa-ticket-alt"></i></li>
-
-                                <?php
-                                } 
-                    }?>
+                    // output all dates for a show
+                    if (have_rows('showtimes')) {
+                        while (have_rows('showtimes')) {
+                            the_row();
+                            $showdate = get_sub_field('dates');
+                        ?>
                             <li>
+                        <?php 
+                                echo '<i class="fa fa-calendar" aria-hidden="true"></i>' . $showdate; 
+                        ?>
+                            </li>
+                        <?php
+                            // output all times for a given date
+                            if (have_rows('times')) {
+                                while (have_rows('times')) {
+                                    the_row();
+                                ?>
+                                    <li>
                                 <?php 
-                                    $prices = get_field('ticket_prices');
-                                    $price_vals = array();
-                                        foreach($prices as $price=>$cost) {
-                                            foreach($cost as $c) {
-                                                array_push($price_vals, $c);
-                                            }
-                                        }
-                                    echo '<i class="fa fa-ticket" aria-hidden="true"></i> $' . join($price_vals, ' | ');
-                                ?>
-                            </li>
-                            <li>
+                                        $doors_open = get_sub_field('doors_open');
+                                        $showtime = get_sub_field('time');
+                                        echo '<i class="fa fa-clock-o" aria-hidden="true"></i>Doors Open ' . $doors_open . ' | Showtime ' . $showtime; 
+                                ?>      &nbsp;<i class="fas fa-ticket-alt"></i>
+                                    </li>
                                 <?php
-                                    echo '<i class="fa fa-map-marker" aria-hidden="true"></i>' . join($locations, ', ');
-                                ?>
-                            </li>
-                        </ul>
+                                }
+                            }
+                        }
+                    }
+                    // append ticket prices
+                    $price_vals = array();
+                    if (have_rows('ticket_prices')) {
+                        while (have_rows('ticket_prices')) {
+                            the_row();
+                            $price = get_sub_field('price');
+                            array_push($price_vals, $price);
+                        }
+                    }
+                    ?>
+                        <li>
+                            <?php echo '<i class="fa fa-ticket" aria-hidden="true"></i> $' . join($price_vals, ' | '); ?>
+                        </li>
+                        <li>
+                            <?php echo '<i class="fa fa-map-marker" aria-hidden="true"></i>' . join($locations, ', '); ?>
+                        </li>
+                </ul>
             </div>
             
             <div class="single-event__sidebar--social-media">
                 <?php
-                    $links = get_field("social_media_link");
-                    foreach($links as $link) { 
+                    if (have_rows('social_media_link')) {
+                        while (have_rows('social_media_link')) {
+                            the_row();
+                            $icon = get_sub_field('icon');
+                            $url = get_sub_field('link_url');
+                            $link_text = get_sub_field('link_description');
                         ?>
-                        <p><?php echo $link["icon"]; ?><a href="<?php echo $link["link_url"]; ?>"><?php echo $link["link_description"]; ?></a></p>
-                    <?php    
+                            <p>
+                                <?php echo $icon; ?>
+                                <a href="<?php echo $url; ?>"><?php echo $link_text; ?></a>
+                            </p>
+                        <?php
+                        }
                     }
                 ?>
             </div>

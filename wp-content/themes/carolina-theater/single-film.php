@@ -14,10 +14,18 @@ $content = get_post($id);
 // get all dates and showtimes
 $date_range = get_field('showtimes');
 // convert date strings to integers for sorting
+// $event_dates = array();
+// for ($i = 0; $i < count($date_range); $i++) {
+//     $event_date = strtotime($date_range[$i]["dates"]);
+//     array_push($event_dates, $event_date);
+// }
 $event_dates = array();
-for ($i = 0; $i < count($date_range); $i++) {
-    $event_date = strtotime($date_range[$i]["dates"]);
-    array_push($event_dates, $event_date);
+if (have_rows('showtimes')) {
+    while (have_rows('showtimes')) {
+        the_row();
+        $event_date = strtotime(get_sub_field('dates'));
+        array_push($event_dates, $event_date);
+    }
 }
 // convert to string and pick the min/max
 $start_date = date("F d, Y", min($event_dates));
