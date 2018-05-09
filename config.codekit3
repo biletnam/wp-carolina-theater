@@ -7324,6 +7324,27 @@
 		"oAP": "\/wp-content\/themes\/carolina-theater\/sidebar.php",
 		"oF": 0
 		},
+	"\/wp-content\/themes\/carolina-theater\/single-event.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/single-event.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theater\/single-festival.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/single-festival.php",
+		"oF": 0
+		},
+	"\/wp-content\/themes\/carolina-theater\/single-film.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/single-film.php",
+		"oF": 0
+		},
 	"\/wp-content\/themes\/carolina-theater\/single.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -7553,6 +7574,13 @@
 		"oAP": "\/wp-content\/themes\/carolina-theater\/style-min.css",
 		"oF": 0,
 		"oS": 3
+		},
+	"\/wp-content\/themes\/carolina-theater\/template-events.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/wp-content\/themes\/carolina-theater\/template-events.php",
+		"oF": 0
 		},
 	"\/wp-content\/themes\/index.php": {
 		"cB": 0,
